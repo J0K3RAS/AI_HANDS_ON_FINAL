@@ -1,0 +1,875 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="/usr/share/remarkable/media/highlightjs.default.min.css" rel="stylesheet"/>
+  <style type="text/css">
+   body,table tr{background-color:#fff}table tr td,table tr th{border:1px solid #ccc;text-align:left;padding:6px 13px;margin:0}pre code,table,table tr{padding:0}hr,pre code{background:0 0}body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;padding:10px 15px}strong,table tr th{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table tr{border-top:1px solid #ccc;margin:0}table tr:nth-child(2n){background-color:#aaa}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}blockquote{padding:0 15px;border-left:4px solid #ccc}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;white-space:pre;border:none}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}
+  </style>
+ </head>
+ <body>
+  <h2>
+   ΔΜΠΣ: Μαθηματική Προτυποποίηση σε Σύγχρονες Τεχνολογίες και τα Χρηματοοικονομικά, ΕΜΠ
+  </h2>
+  <table>
+   <thead>
+    <tr>
+     <th>
+     </th>
+     <th>
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      Όνομα
+     </td>
+     <td>
+      Χαράλαμπος Μπεκιάρης
+     </td>
+    </tr>
+    <tr>
+     <td>
+      ΑΜ
+     </td>
+     <td>
+      09324014
+     </td>
+    </tr>
+    <tr>
+     <td>
+      email
+     </td>
+     <td>
+      <a href="mailto:charalbek@gmail.com">
+       charalbek@gmail.com
+      </a>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Ημ/νια
+     </td>
+     <td>
+      26 Ιουνίου 2025
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Εξάμηνο
+     </td>
+     <td>
+      2ο
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Μάθημα
+     </td>
+     <td>
+      AI Hands on
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Εργασία
+     </td>
+     <td>
+      Τελική
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <h1>
+   Συνοπτικά
+  </h1>
+  <h2>
+   Οδηγίες εγκατάστασης
+  </h2>
+  <p>
+   Τα απαραίτητα πακέτα για την εκτέλεση του προγράμματος αναφέρονται στο αρχείο requirements.txt, και μπορούν για παράδειγμα να εγκατασταθούν με την εντολή:
+  </p>
+  <pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+  <h1>
+   Οδηγίες εκτέλεσης
+  </h1>
+  <h2>
+   Βασική Χρήση
+  </h2>
+  <p>
+   Η εφαρμογή είναι σχεδιασμένη να τρέχει καλώντας το αρχείο
+   <code>
+    main.py
+   </code>
+   , το οποίο παρέχει command line arguments. H εργασία αυτή υλοποιεί ένα deep learning tabnet μοντέλο (βλ. ενότητα 'Ζήτημα 3'), για την πρόβλεψη του χρόνου ταξιδιού μιας κούρσας ταξί. Μπορείτε να εκπαιδεύσετε το εν λόγω μοντέλο με χρήση της εντολής:
+  </p>
+  <pre><code class="language-bash">python main.py --nn
+</code></pre>
+  <p>
+   To μοντέλο αποθηκεύεται στην διαδρομή
+   <code>
+    models/tabnetreg.xz
+   </code>
+   . Επίσης δίνεται η δυνατότητα για tuning ορισμένων υπερπαραμέτρων, δίνοντας συμπληρωματικά το flag --tune, δηλαδή:
+  </p>
+  <pre><code class="language-bash">python main.py --nn --tune
+</code></pre>
+  <p>
+   Σε αυτή την περπίπτωση, το τελικό μοντέλο αποθηκεύεται ως
+   <code>
+    models/hp_tabnetreg.xz
+   </code>
+   .
+  </p>
+  <p>
+   Επιπροσθέτως, μπορείτε να δοκιμάσετε να εκπαιδεύσετε ή να βρείτε κατάλληλες υπερπαραμέτρους για ένα xgboost regressor μοντέλο, χρησιμοποιώντας το αντίστοιχο flag --xgb:
+  </p>
+  <pre><code class="language-bash">python main.py --xgb (--tune)
+</code></pre>
+  <p>
+   Το μοντέλο αποθηκεύεται ως
+   <code>
+    models/xgbreg.pkl
+   </code>
+   και
+   <code>
+    models/hp_xgbreg.xz
+   </code>
+   αντίστοιχα. Περισσότερες πληροφορίες με το hyperparameter tuning στις παρακάτω ενότητες.
+  </p>
+  <p>
+   Κλείνοντας αποφασίζουμε ότι το τελικό μοντέλο που απαντάει στα τελευταία ερωτήματα της εργασίας να είναι ένα το βελτιστοποιημένο xgboost μοντέλο.
+  </p>
+  <h2>
+   Endpoint (uvicorn)
+  </h2>
+  <p>
+   Το script
+   <code>
+    app.py
+   </code>
+   υλοποιεί το endpoint
+   <code>
+    /predict
+   </code>
+   προκειμένου να αλληλεπιδράσετε με το xgboost μοντέλο και να πάρετε τις σχετικές προβλέψεις. Αρκεί να δώσετε σε json τα δεδομένα, και το μοντέλο εσωτερικά θα κάνει ό,τι preprocessing χρειάζεται πριν δώσει την τιμή πρόβλεψης.
+  </p>
+  <pre><code class="language-bash">uvicorn app:app --host 0.0.0.0 --port 8080 --reload
+</code></pre>
+  <p>
+   Μπορείτε να ζητήσετε από το μοντέλο να σας κάνει μία πρόβλεψη, για παράδειγμα στις πρώτες δύο γραμμές του test dataframe:
+  </p>
+  <pre><code class="language-python">import requests
+import pandas as pd 
+df = pd.read_csv('data/nyc-taxi-trip-duration/test_processed.csv')
+url = "http://127.0.0.1:8080/predict"
+json = df.iloc[:2].to_dict(orient='records')
+response = requests.post(url, json=json)
+print(response.text)  # {"predictions":[756.30859375,337.8510437011719]}
+print(df.iloc[0:2]['trip_duration'].tolist())  # [679.0, 344.0]
+</code></pre>
+  <h2>
+   Containerization
+  </h2>
+  <p>
+   Το /predict endpoint μπορεί να γίνει deploy από docker container, αρκεί να φτιάξετε ένα container image όπως περιγράφει το Dockerfile που βρίσκεται στο root directory του project, με την εντολή:
+  </p>
+  <pre><code class="language-console">docker build --tag 'bekiaris_final' .  --no-cache
+</code></pre>
+  <p>
+   Στην συνέχεια μπορείτε ενα εκκινήσετε το container:
+  </p>
+  <pre><code class="language-console">docker run -dit -p 8080:8080 --name bekiaris bekiaris_final:latest
+</code></pre>
+  <p>
+   Η παραπάνω εντολή θα φτιάξει ένα container με το όνομα
+   <code>
+    bekiaris
+   </code>
+   χρησιμοποιώντας το
+   <code>
+    bekiaris_final
+   </code>
+   docker image και θα κάνει expose την θύρα 8080 στην οποία ακούει το uvicorn app.
+  </p>
+  <h1>
+   Ζήτημα 1: Επιλογή dataset &amp; task
+  </h1>
+  <p>
+   Στις προηγούμενες εργασίες είχε επιλεχθεί η επίλυση ενός regression task. Συνεπώς και σε αυτή την εργασία θα ασχοληθούμε με ένα πρόβλημα παλινδρόμησης. Το dataset που επιλέχθηκε, είναι το
+   <a href="https://www.kaggle.com/competitions/nyc-taxi-trip-duration/data">
+    nyc-taxi-trip-duration
+   </a>
+   από διαγωνισμό του kaggle. Στόχος του dataset είναι να γίνει πρόβλεψη της διάρκειας μιας διαδρομής ταξί στην πόλη της Νέας Υόρκης. Τα features του dataset είναι τα εξής:
+  </p>
+  <ul>
+   <li>
+    id : Μοναδικό αναγνωριστικό της κάθε διαδρομής.
+   </li>
+   <li>
+    vendor_id: Το αναγνωριστικό της εταιρίας η οποία παρέχει τα δεδομένα.
+   </li>
+   <li>
+    pickup_datetime: Η ημερομηνία - αφετηρία της διαδρομής.
+   </li>
+   <li>
+    dropoff_datetime: Η ημερομηνία άφιξης στον προορισμό.
+   </li>
+   <li>
+    passenger_count: Το πλήθος των επιβατών.
+   </li>
+   <li>
+    pickup_longitude: Το γεωγραφικό μήκος του σημείου αφετηρίας.
+   </li>
+   <li>
+    pickup_latitude:  Το γεωγραφικό πλάτος του σημείου αφετηρίας.
+   </li>
+   <li>
+    dropoff_longitude:  Το γεωγραφικό μήκος του σημείου προορισμού.
+   </li>
+   <li>
+    dropoff_latitude:  Το γεωγραφικό πλάτος του σημείου προορισμού.
+   </li>
+   <li>
+    store_and_fwd_flag: Αν το τακί είχε σύνδεση στο διαδίκτυο ή τα δεδομένα εισήχθησαν σε μεταγενέστερο χρόνο στον σέρβερ.
+   </li>
+   <li>
+    trip_duration: Η διάρκεια του ταξιδιού σε δευτερόλεπτα.
+   </li>
+  </ul>
+  <h1>
+   Ζήτημα 2: Προεπεξεργασία δεδομένων
+  </h1>
+  <h2>
+   Καθαρισμός, προεπεξεργασία και διαχωρισμός
+  </h2>
+  <p>
+   Τρέχουμε το αρχείο:
+  </p>
+  <pre><code class="language-console">python feature_engineering/main.py
+</code></pre>
+  <p>
+   Από την κονσόλα, παρατηρούμε τα εξής:
+  </p>
+  <ul>
+   <li>
+    Τα δεδομένα έρχοντα ήδη χωρισμένα σε δύο αρχεία, train και test. Η αναλογία του train-test είναι 70.00% και τα δεδομένα συνολικά είναι περίπου 2 εκατομμύρια.
+   </li>
+  </ul>
+  <pre><code>Train data points: 1458644
+Total data points: 2083778
+Train ratio: 70.00%
+</code></pre>
+  <ul>
+   <li>
+    Τα δεδομένα έχουν 625 χιλιάδες εγγραφές στις οποίες λείπει η τιμή της μεταβλητής απόκρισης
+    <code>
+     trip_duration
+    </code>
+    και κατ' επέκταση η αντίστοιχη ημερομηνία άφιξης
+    <code>
+     dropoff_datetime
+    </code>
+    . Η απουσία και των δύο είναι δικαιολογημένη, καθώς η διάρκεια της διαδρομής προκύπτει ως αφαίρεση της ημερομηνίας αφίξης με την ημερομηνία εκκίνησης.  Ο λόγος που απουσιάζουν είναι λόγω της φύσης του διαγωνισμού από τον οποίο προέκυψαν τα δεδομένα, όπου τα "test" δεδομένα δεν έχουν τιμή στην μεταβλητή απόκρισης, προκειμένου οι χρήστες να κάνουν submit στο kaggle τα αντίστοιχα predictions και να βαθμολογηθούν, Επομένως, για τους σκοπούς αυτής της άσκησης, θα ασχοληθούμε μόνο με τα train δεδομένα, όπου γενικά δεν υπάρχουν missing values σε κάποιο άλλο feature.
+   </li>
+  </ul>
+  <pre><code>Nan values:
+id                         0
+vendor_id                  0
+pickup_datetime            0
+dropoff_datetime      625134
+passenger_count            0
+pickup_longitude           0
+pickup_latitude            0
+dropoff_longitude          0
+dropoff_latitude           0
+store_and_fwd_flag         0
+trip_duration         625134
+is_train                   0
+</code></pre>
+  <ul>
+   <li>
+    Για να αντιμετωπίσουμε ανώμαλες τιμές, αρχικά εξετάζουμε ορισμένα features των δεδομένων.
+   </li>
+   <li>
+    Trip duration: εξετάζουμε διαδρομές με πολύ μικρή ή πολύ μεγάλη διάρκεια. Απορρίπτουμε διαδρομές με διάρκεια μικρότερη του μισού λεπτού και μεγαλύτερη των 2 ωρών
+   </li>
+  </ul>
+  <pre><code>Rides over 1 hours: 12317
+Rides over 2 hours: 2253
+Rides over 3 hours: 2112
+Rides over 4 hours: 2077
+Rides over 5 hours: 2072
+Rides over 6 hours: 2061
+Rides over 7 hours: 2050
+Rides under 0.5 minutes: 4782
+Rides under 1.0 minutes: 8595
+Rides under 1.5 minutes: 15450
+Rides under 2.0 minutes: 27817
+Rides under 2.5 minutes: 46394
+Total datapoints before filtering duration: 1458644
+Total datapoints after filtering duration: 1451609
+</code></pre>
+  <ul>
+   <li>
+    Passengers:  Ελέγχουμε πόσες κούρσες πραγματοποιήθηκαν ανά κατηγορία/πλήθος επιβατών. Οι διαδρομές με 8 και 9 επιβάτες αντίστοιχα, είναι μόλις 2, επομένως θεωρούμε ότι δεν έχουν αντιπροσωπευτικό μερίδιο και τις πετάμε από τα δεδομένα. Επίσης, υπάρχουν 24 διαδρομές με 0 επιβάτες, το οποίο προφανώς είναι σφάλμα, και τους αλλάζουμε το πλήθος επιβατών σε 1 (πλειοψηφική κατηγορία).
+   </li>
+  </ul>
+  <pre><code>Taxi rides with 0 passengers : 24
+Taxi rides with 1 passengers : 1028249
+Taxi rides with 2 passengers : 209514
+Taxi rides with 3 passengers : 59662
+Taxi rides with 4 passengers : 28288
+Taxi rides with 5 passengers : 77731
+Taxi rides with 6 passengers : 48139
+Taxi rides with 8 passengers : 1
+Taxi rides with 9 passengers : 1
+</code></pre>
+  <ul>
+   <li>
+    Outliers detection: Για την ανίχνευση σημείων μόχλευσης/έκτροπων τιμών αρχικά κάνουμε fit ένα isolation forest. Προκειμένου να συμπεριλάβουμε στην μελέτη και την ημερομηνία αφετηρίας (pickup_datetime), η οποία είναι σε μορφή
+    <code>
+     %Y-%m-%d %H:%M:%S
+    </code>
+    , εξάγουμε ένα αριθμητικό feature που είναι ο αντίστοιχος unix χρόνος (
+    <code>
+     pickup_time_unix
+    </code>
+    ). Ακολούθως, γίνονται διαγράμματα ανάμεσα στα detected outliers και inliners:
+    <img alt="Διάγραμμα1" src="data/plots/outliers_continuous.png"/>
+   </li>
+  </ul>
+  <p>
+   Το παραπάνω διάγραμμα των συνεχών μεταβλητών, δείχνει ότι στις μεταβλητές με συντεταγμένες, έχουν κατηγοριοποιηθεί ως outiliers αρκετές παρατηρήσεις οι οποίες ενδέχεται να αναφέρονται σε σημεία εκτός της Νέας Υόρκης. Για την μεταβλητή απόκρισης,
+   <code>
+    trip_duration
+   </code>
+   , αξίζει να σημειωθεί πως το θηκοδιάγραμμα υποδηλώνει πως ακολουθεί κατανομή lognormal, και ίσως να μπορούσαμε να την λογαριθμήσουμε ώστε να έχει κανονική κατανομή.
+   <img alt="Διάγραμμα2" src="data/plots/outliers_discrete.png"/>
+  </p>
+  <p>
+   Το διάγραμμα των διακριτών μεταβλητών δεν φανερώνει κάτι ανησυχητικό ανάμεσα στα δύο groups.
+  </p>
+  <ul>
+   <li>
+    Αποφασίζουμε να φιλτράρουμε τις γεωγραφικές συντεταγμένες. Αξιοποιώντας
+    <a href="https://data.cityofnewyork.us/City-Government/Digital-City-Map-Shapefile/m2vu-mgzw">
+     αυτή την πηγή
+    </a>
+    μπορούμε να έχουμε τις συντεταγμένες για κάθε γειτονιά της Νέας Υόρκης. Λαμβάνοντας υπόψιν τα μέγιστα και ελάχιστα γεωγραφικά μήκη/πλάτη μπορούμε να ορίσουμε ένα τετράγωνο της περιοχής:
+   </li>
+  </ul>
+  <p>
+   <img alt="Διάγραμμα3" src="data/plots/NYC_box.png"/>
+  </p>
+  <p>
+   Πετάμε από το dataset τις διαδρομές με αφετηρία/προορισμό εκτός του ορθογωνίου:
+  </p>
+  <pre><code>Datapoints before dropping rides outside NYC: 1451607
+Datapoints after dropping rides outside NYC: 1450148
+</code></pre>
+  <p>
+   ... και επαναλαμβάνουμε τα θηκοδιαγράμματα των ποσοτικών μεταβλητών
+  </p>
+  <p>
+   <img alt="Διάγραμμα31" src="data/plots/after_outliers_continuous.png"/>
+  </p>
+  <p>
+   Τα θηκοδιαγράμματα φαίνεται να είναι πιο φυσιολογικά, και ενώ υπάρχουν ποιοτικές διαφορές στις κατανομές των inliners και outliers, παραμένουν κοντά τα θηκοδιαγράμματα των εν λόγω κατηγοριών.
+  </p>
+  <ul>
+   <li>
+    Κλείνοντας, κάνουμε finalize το κομμάτι του outlier detection, κάνοντας fit ένα isolation forest και έναν SGD One Class SVM. Στον τελευταίο, τυποιούμε τις μεταβλητές εισόδου καθώς είναι ευαίσθητος στον scaling των μεταβλητών.
+   </li>
+  </ul>
+  <pre><code>Isolation forest outliers: 185188
+SGD OneClass SVM outliers: 80121
+Common outliers: 2004
+</code></pre>
+  <p>
+   Το Isolation forest εχει ανιχνεύσει αρκετές παραπάνω παρατηρήσεις ως outliers. Οι δύο τεχνικές συμφωνούν σε μόλις 2,004 παρατηρήσεις, και αποφασίζουμε ότι εφόσων συμπίπτουν μπορούμε να τις αφαιρέσουμε:
+  </p>
+  <pre><code>Data points after dropping common outliers: 1448144
+</code></pre>
+  <p>
+   Το τελικό dataset έπειτα από αυτή την μελέτη είναι μικρότερο κατά μόλις 10,000 παρατηρήσεις σε σχέση με το αρχικό.
+   <ins>
+    Χωρίζουμε τα δεδομένα σε 90% (train &amp; val μαζί) και 10% test
+   </ins>
+   . Τα αντίστοιχα dataset αποθηκεύονται ως
+   <code>
+    train_processed.csv
+   </code>
+   και
+   <code>
+    test_processed.csv
+   </code>
+   στον φάκελο
+   <code>
+    data/nyc-taxi-trip-duration
+   </code>
+   .
+  </p>
+  <p>
+   Επίσης κατασκευάζουμε ένα διάγραμμα σχετικά με την υποψία ότι η μεταβλητή απόκρισης είναι log-normal:
+  </p>
+  <p>
+   <img alt="Διάγραμμα32" src="data/plots/trip_duration_distribution.png"/>
+  </p>
+  <p>
+   Πράγματι, η λογαριθμισμένη διάρκεια ταξιδιού φαίνεται να ακολουθεί κανονική κατανομή. Άρα, με βάση και τα προηγούμενα, γραφικά φαίνεται να ταιριάζει στα δεδομένα η τυποποιήση, και
+   <ins>
+    επιλέγουμε να τυποποιούμε τις αριθμητικές μεταβλητές, ενώ τα μοντέλα εκπαιδεύονται μαθαίνοντας την log(trip_duration), και οι μετρικές που θα χρησιμοποιούνται θα υπολογίζονται με exp(y_pred), δηλαδή στην αρχική κλίμακα.
+   </ins>
+  </p>
+  <h2>
+   Feature Engineering
+  </h2>
+  <h3>
+   Combine &amp; extract features
+  </h3>
+  <p>
+   Για την μελέτη των νέων μεταβλητών που θέλουμε να εισάγουμε, τρέχουμε το script
+   <code>
+    feature_engineering/feature_engineering.py
+   </code>
+   . Tο script αυτό δοκιμάζει τα νέα features πραγματοποιώντας 4-Fold cross validation στο
+   <code>
+    train_processed.csv
+   </code>
+   με την βοήθεια ενός xgboost regressor από το πακέτο xgboost. Τα εν λόγω features που θέλουμε να εξετάσουμε είναι τα εξής:
+  </p>
+  <ul>
+   <li>
+    <p>
+     <strong>
+      pickup_time_unix
+     </strong>
+     : Εξάγουμε από την μεταβλητή
+     <code>
+      pickup_time
+     </code>
+     τον χρόνο σε unix format, ένα αριθμητικό δηλαδή feature το οποίο εμπεριέχει την ημέρα, ημερομηνία, έτος καθώς και την ώρα έναρξης της διαδρομής.
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      weekend
+     </strong>
+     : Εξάγουμε από την μεταβλητή
+     <code>
+      pickup_time
+     </code>
+     μία δυαδική μεταβλητή 1: Η διαδρομή έγινε Σαββατοκύριακο, 0: Αλλιώς.
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      workhours
+     </strong>
+     : Εξάγουμε από την μεταβλητή
+     <code>
+      pickup_time
+     </code>
+     μία δυαδική μεταβλητή 1: Η διαδρομή έγινε μεταξύ 09:00 - 17:00, 0: Αλλιώς.
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      haversine
+     </strong>
+     :  Συνδυάζουμε τα pickup και dropoff longitude/latitude προκειμένου να εξάγουμε την απόσταση (σε χιλιόμετρα) της διαδρομής αξιοποιώντας τον τύπο
+     <a href="https://www.geeksforgeeks.org/dsa/haversine-formula-to-find-distance-between-two-points-on-a-sphere/">
+      haversine
+     </a>
+     .
+    </p>
+   </li>
+   <li>
+    <p>
+     <strong>
+      sin_hour και cos_hour
+     </strong>
+     :  Εξάγουμε δύο αριθμητικές μεταβλητές από την ώρα αφετηρίας, συγκεκριμένα  αναλύουμε την ώρα σε ένα ημιτονοειδές και ένα συνημιτονοειδές component. Παρότι είναι δύο features, εξετάζουμε την επιρροή τους όταν βρίσκονται ταυτόχρονα στο μοντέλο.
+    </p>
+   </li>
+  </ul>
+  <p>
+   Τα αποτελέσμα συνοψίζονται στον ακόλουθο πίνακα που εμφανίζεται στην κονσόλα όταν τρέξουμε το script:
+  </p>
+  <pre><code>|    | feature           |   mse_mean |   mse_std |
+|---:|:------------------|-----------:|----------:|
+|  0 | baseline          |     133564 |   415.388 |
+|  1 | unix_time         |     118923 |   305.359 |
+|  2 | weekend           |     129060 |   332.643 |
+|  3 | workhours         |     119801 |   493.855 |
+|  4 | haversine         |     130332 |   321.724 |
+|  5 | sin_hour~cos_hour |     103980 |   605.263 |
+</code></pre>
+  <p>
+   To baseline xgboost μοντέλο (δίχως την προσθήκη κάποιας εκ των νέων μεταβλητών) έχει το μεγαλύτερο μέσο τετραγωνικό σφάλμα (μέση τιμή στα 4 folds). Εν αντιθέσει, η αποσύνθεση της ώρας σε συνιμοτονειδές και ημιτονοειδές συστατικά έδωσε την μεγαλύτερη βελτίωση, αν και η τυπική απόκλιση της εν λόγω μετρικής έχει αυξηθεί σε σχέση με το baseline model, αλλά εξακολουθεί να είναι αρκετά μικρή. Εν γένει όλα τα features βελτίωσαν την απόδοση του μοντέλου, και ειδικά εκείνα που σχετίζονται με τον χρόνο. Το νέο χαρακτηριστικό της haversine απόστασης έδωσε την μικρότερη βελτίωση, ενώ αναμέναμε η εξαγωγή της χιλιομετρικής απόστασσης να είχε συμβάλλει περισσότερο στην μείωση του σφάλματος. Ενδεχομένως οι συντεταγμένες από μόνες τους στο xgboost μοντέλο να συνδιάζονται με τέτοιο τρόπο ώστε να υποδεικνύουν γειτονιές με αυξημένη κίνηση και κατ επέκταση μεγαλύτερο χρόνο διαδρομής (το οποίο δεν είναι απαραίτητο να σχετίζεται απαραίτητα μόνο από την απόσταση).
+  </p>
+  <h3>
+   Feature Selection
+  </h3>
+  <p>
+   Τρέχουμε το script:
+  </p>
+  <pre><code class="language-console">python feature_engineering/feature_selection.py
+</code></pre>
+  <p>
+   Το εν λόγω script εφαρμόζει στο train dataset την Select k best τεχνική για k=6 σε κάθε ένα από τα 4 folds του cross validation, και επιστρέφει τις 6 μεταβλητές με την μεγαλύτερη συχνότητα εμφάνισης στα 4 folds. Επιπροσθέτως, σε κάθε fold εκπαιδεύεται το xgboost μοντέλο και καταγράφεται η απόδοσή του (mean squared error) του validation set. Στην κονσόλα εμφανίζονται τα ακόλουθα αποτελέσματα:
+  </p>
+  <pre><code>--- Feature Selection Results ---
+| method             |   mse_mean |   mse_std | selected_features_example                                                                                  |
+|:-------------------|-----------:|----------:|:-----------------------------------------------------------------------------------------------------------|
+| SelectKBest (k=6)  |     115951 |   485.85  | ['pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude', 'workhours', 'haversine'] |
+</code></pre>
+  <p>
+   Παρατηρούμε στις 6 καλύτερες περιέχονται 2 από τις μεταβλητές που προστέσαμε, και όλες όσες σχετίζονται με γεωγραφικές συντεταγμένες. Σε αυτή την περίπτωση, το μοντέλο με τις έξι μεταβλητές καταφέρνει να έχει καλύτερο μέσο τετραγωνικό σφάλμα από το baseline μοντέλο. Στην συνέχεια, το script κατασκευάζει το tree-based feature importance του xgboost μοντέλου:
+  </p>
+  <p>
+   <img alt="Διάγραμμα4" src="data/plots/feature_importance.png"/>
+  </p>
+  <ul>
+   <li>
+    <strong>
+     gain
+    </strong>
+    : Οι μεταβλητές
+    <code>
+     haversine
+    </code>
+    και
+    <code>
+     workhours
+    </code>
+    όταν προτάθηκαν να μπουν στο μοντέλο φαίνεται να έδωσαν την μεγαλύτερη βελτίωση στην τιμή της αντικειμενικής συνάρτησης. Την χειρότερη επίδοση είχαν οι μεταβλητές
+    <code>
+     store_and_fwd_flag
+    </code>
+    και
+    <code>
+     passenger_count
+    </code>
+    .
+   </li>
+   <li>
+    <strong>
+     weight
+    </strong>
+    : Οι μεταβλητές
+    <code>
+     haversine
+    </code>
+    και όλες οι συντεταγμένες είναι οι top βάση του συνολικού πλήθους των εμφανίσεών τους στα δέντρα. Ξανά η
+    <code>
+     store_and_fwd_flag
+    </code>
+    φαίνεται να έχει μικρή συνεισφορά στο μοντέλο, μαζί με την
+    <code>
+     vendor_id
+    </code>
+    .
+   </li>
+  </ul>
+  <p>
+   Με βάση τα παραπάνω,
+   <ins>
+    στα επόμενα βήματα της εργασίας αποφασίζουμε να πετάξουμε τις μεταβλητές
+    <code>
+     passenger_count
+    </code>
+    ,
+    <code>
+     store_and_fwd_flag
+    </code>
+    και
+    <code>
+     vendor_id
+    </code>
+   </ins>
+  </p>
+  <h3>
+   PCA
+  </h3>
+  <p>
+   Δοκιμάζουμε να μειώσουμε περαιτέρω την διάσταση των numeric features:
+  </p>
+  <pre><code class="language-python">[
+    'pickup_latitude', 'pickup_longitude',
+    'dropoff_latitude', 'dropoff_longitude',
+    'unix_time', 'haversine', 'sin_hour', 'cos_hour'
+]
+</code></pre>
+  <p>
+   εφαρμόζοντας PCA. Ο κώδικας θα πραγματοποιήσει 4-fold Cross Validation, όπου στα train folds θα γίνεται fit_transform Standard Scaler και στην συνέχεια PCA, ενώ σκέτο transform στο validation fold.  Ακολούθως, τα pca components που προκύπτουν γίνονται concatenate στις κατηγορικές μεταβλητές:
+  </p>
+  <pre><code class="language-python">[
+    'weekend', 'workhours'
+]
+</code></pre>
+  <p>
+   και τελικά εκπαιδεύεται το αντίστοιχο xgboost μοντέλο. Αυτά γίνονται εκτελώντας το script:
+  </p>
+  <pre><code class="language-console">python feature_engineering/dimensionality_reduction.py
+</code></pre>
+  <p>
+   Τα αποτελέσματα που εμφανίζονται στην κονσόλα είναι τα ακόλουθα:
+  </p>
+  <pre><code class="language-python">Explained variance ratio by component:
+Component 1: 0.2389 (23.89%)
+Component 2: 0.1842 (18.42%)
+Component 3: 0.1448 (14.48%)
+Component 4: 0.1250 (12.50%)
+Component 5: 0.1066 (10.66%)
+Component 6: 0.0874 (8.74%)
+Component 7: 0.0655 (6.55%)
+Component 8: 0.0476 (4.76%)
+Cumulative variance explained: 100.00%
+--- PCA Results ---
+|   n_components |   mse_mean |   mse_std |
+|---------------:|-----------:|----------:|
+|              2 |   204536   |   534.054 |
+|              3 |   178576   |   644.776 |
+|              4 |   174750   |   668.241 |
+|              5 |   145964   |   605.656 |
+|              6 |   127720   |   471.515 |
+|              7 |    91163.5 |   709.069 |
+|              8 |    86111.6 |   538.105 |
+
+</code></pre>
+  <p>
+   Παρατηρούμε ότι τα πρώτα 4 κύρια συστατικά εξηγούν το 70% της συνολικής διασποράς. Επιπλέον, από τα μοντέλα που προσαρμόσαμε, είναι φανερό ότι αν θέλαμε να πετύχουμε επίδοση καλύτερη από το baseline μοντέλο, θα έπρεπε να διατηρήσουμε τουλάχιστον 6 κύρια συστατικά. Παρόλα αυτά, το μοντέλο που έχει διατηρήσει και τις 8 συνιστώσες, έχει σημαντικά βελτιωμένη επίδοση σε σχέση με όσα μοντέλα έχουμε εξετάσει μέχρι τώρα.
+  </p>
+  <p>
+   Με βάση τα παραπάνω,
+   <ins>
+    στα μοντέλα που θα προσαρμοστούν στις επόμενες ενότητες, συμπληρωματικά με όλα τα παραπάνω αποφασίζουμε να εφαρμόσουμε PCA με 8 components.
+   </ins>
+  </p>
+  <h1>
+   Ζήτημα 3: Machine &amp;  Deep Learning models
+  </h1>
+  <p>
+   To validation dataset των επόμενων ερωτημάτων έχει προκύψει ως το 11,111% του train set, για να πετύχουμε 80/10/10 split.
+  </p>
+  <h2>
+   Machine Learning model
+  </h2>
+  <p>
+   Ως machine learning model, επιλέγουμε ένα xgboost model, με baseline παραμέτρους:
+  </p>
+  <pre><code class="language-python">{
+    'n_estimators': 500,
+    'max_depth': 6,
+    'reg_alpha': 0,
+    'reg_lambda': 1,
+    'learning_rate': 0.3,
+}
+</code></pre>
+  <p>
+   Εφαρμόζουμε Early Stopping strategy με patience=10 και μετρική παρακολούθησης στο validation dataset τον δείκτη R2.
+Το performance του baseline xgboost μοντέλου είναι το ακόλουθο:
+  </p>
+  <pre><code class="language-python">|       |       R2 |     MAPE |    RMSE |     MSE |
+|:------|---------:|---------:|--------:|--------:|
+| train | 0.808049 | 0.25098  | 284.812 | 81117.8 |
+| val   | 0.799509 | 0.263148 | 289.455 | 83784.4 |
+| test  | 0.793695 | 0.262553 | 294.816 | 86916.4 |
+</code></pre>
+  <p>
+   Όλες οι μετρικές είναι πολύ κοντά ανεξαρτήτου data set (train. test ή validation). Ο δείκτης R2 είναι πολύ κοντά στο 80%, το οποίο δείχνει ικανοποιητική συσχέτιση μεταξύ των προβλέψεων και των πραγματικών τιμών. Επιπλέον, η τιμή του μέσου τετραγωνικού σφάλματος, ακόμα και στα unseen (μέχρι πρότινος) test data είναι στα επίπεδα που αναμέναμε από μελέτες σε προηγούμενα ερωτήματα. Συνεπώς το εν λόγω μοντέλο αποτελεί μια καλή αφετηρία. Στην συνέχεια πραγματοποιούμε grid search για τον καλύτερο συνδιασμό των παραμέτρων:
+  </p>
+  <pre><code class="language-python">{
+    'max_depth': [2, 5, 10],
+    'learning_rate': [1e-01, 1e-02, 1e-03],
+    'n_estimators': [500, 750],
+    'reg_alpha': [0.01, 0.1, 0],
+    'reg_lambda': [0.01, 0.1, 0],
+}
+</code></pre>
+  <p>
+   Οι καλύτερες παράμετροι (βάση του validation set) που προέκυψαν είναι οι ακόλουθοι:
+  </p>
+  <pre><code class="language-python">{
+    'n_estimators': 500, 
+    'max_depth': 10,
+    'reg_alpha': 0.1, 
+    'reg_lambda': 0,
+    'learning_rate': 0.1,
+}
+</code></pre>
+  <p>
+   Με επίδοση:
+  </p>
+  <pre><code class="language-python">|       |       R2 |     MAPE |    RMSE |     MSE |
+|:------|---------:|---------:|--------:|--------:|
+| train | 0.854853 | 0.211816 | 247.666 | 61338.4 |
+| val   | 0.81336  | 0.251786 | 279.278 | 77996.2 |
+| test  | 0.806324 | 0.250923 | 285.65  | 81596   |
+</code></pre>
+  <p>
+   Το μοντέλο παρουσιάζει σημαντικά καλύτερη επίδοση στο train set σε σχέση με το baseline. Ελαφρώς βελτιωμένες είναι και οι μετρικές στα validation &amp; test datasets. Υπάρχει μια μικρή ένδειξη ότι αρχίζει να γίνεται overfit, αλλά από την στιγμή πού όλες οι μετρικές είναι βελτιωμένες (ακόμα και στο test set), μπορούμε να το αποδεχτούμε.
+  </p>
+  <h2>
+   Deep Learning model
+  </h2>
+  <p>
+   Ως deep learning model, επιλέγουμε το
+   <a href="https://arxiv.org/pdf/1908.07442">
+    TabNet
+   </a>
+   model από το πακέτο
+   <a href="https://github.com/dreamquark-ai/tabnet">
+    pytorch-tabnet
+   </a>
+   , με baseline παραμέτρους (defaults):
+  </p>
+  <pre><code class="language-python">{
+    "n_d": 8,
+    "gamma": 1.3,
+    "n_shared": 2,
+    "lambda_sparse": 1e-3,
+}
+</code></pre>
+  <p>
+   Εφαρμόζουμε Early Stopping strategy με patience=3, μετρική παρακολούθησης στο validation dataset τον δείκτη R2 και το πολύ 20 εποχές εκπαίδευσης. Το performance του baseline tabnet μοντέλου είναι το ακόλουθο:
+  </p>
+  <pre><code class="language-python">|       |       R2 |     MAPE |    RMSE |     MSE |
+|:------|---------:|---------:|--------:|--------:|
+| train | 0.767008 | 0.269347 | 313.786 | 98461.5 |
+| val   | 0.773163 | 0.269527 | 307.886 | 94794.1 |
+| test  | 0.7658   | 0.269602 | 314.116 | 98668.6 |
+</code></pre>
+  <p>
+   Όλες οι μετρικές είναι πολύ κοντά ανεξαρτήτου data set (train. test ή validation). Ο δείκτης R2 είναι πολύ κοντά στο 77%, ελαφρώς χειρότερος σε σχέση με το xgboost μοντέλο. Το ίδιο ισχύει και για την τιμή του μέσου τετραγωνικού σφάλματος, η οποία είναι τουλ. 10,000 μονάδες χειρότερη από το αρχικό xgboost μοντέλο. Στην συνέχεια πραγματοποιούμε grid search για να βρούμε τον καλύτερο συνδιασμό των παραμέτρων:
+  </p>
+  <pre><code class="language-python">{
+    "n_d": [8, 16, 32],
+    "gamma": [1.3, 1.7],
+    "n_shared": [2, 4],
+    "lambda_sparse": [1e-3, 1e-4],
+}
+</code></pre>
+  <p>
+   Οι καλύτερες παράμετροι (βάση του validation set) που προέκυψαν είναι οι ακόλουθοι:
+  </p>
+  <pre><code class="language-python">{
+    'n_d': 32,
+    'gamma': 1.3,
+    'n_shared': 4, 
+    'lambda_sparse': 0.0001
+ }
+</code></pre>
+  <p>
+   Με επίδοση:
+  </p>
+  <pre><code class="language-python">|       |       R2 |     MAPE |    RMSE |     MSE |
+|:------|---------:|---------:|--------:|--------:|
+| train | 0.795545 | 0.262082 | 293.942 | 86402.1 |
+| val   | 0.800323 | 0.263031 | 288.867 | 83444.2 |
+| test  | 0.791435 | 0.263785 | 296.427 | 87868.8 |
+</code></pre>
+  <p>
+   Το βελτιστοποιημένο μοντέλο είναι σημαντικά καλύτερο από το αρχικό. Υπάρχει σημαντική βελτίωση στον δείκτη R2 (+3%) και του MAPE (-0.7%). Καταφέραμε να βελτιώσουμε το μέσο τετραγωνικό σφάλμα, κατά 10,000 μονάδες, και το μοντέλο που προέκυψε έχει πολύ κοντινές μετρικές σε όλα τα data sets (train/test/validation). Συνεπώς είμαστε ικανοποιημένοι από την ικανότητα γενίκευσης του μοντέλου και την βελτίωση στην απόδοση.
+  </p>
+  <h2>
+   Final Model
+  </h2>
+  <p>
+   Ως τελικό μοντέλο συγκρίνοντας το βελτιστοποιημένο xgboost και tabnet μοντέλο, επιλέγουμε το xgboost. Η απόφαση προκύπτει από το μικρό υπολογιστικό κόστος και την καλύτερη επίδοση του xgboost στο test set. Η εκπαίδευση του tabnet χρειάζεται 1 λεπτό ανά epoch, δηλαδή το πολύ 20 λεπτά για 20 εποχές. Εν αντιθέσει, το xgboost σε ένα μόλις λεπτό έχει ολοκληρώσει την διαδικασία εκπαίδευσης και τα αποτελέσματα είναι καλύτερα. Πιο συγκεκριμένα, ο δείκτης R2 στο test set είναι +1.5%, το MAPE -1.2% και υπάρχει επίσης σημαντική διαφορά στα MSE και RMSE.
+  </p>
+  <h1>
+   Ζήτημα 4: Model Interpretation
+  </h1>
+  <p>
+   Σχετικά με το performance του μοντέλου, οι διάφορες μετρικές που χρησιμοποιήθηκαν σχολιάστηκαν στο προηγούμενο ερώτημα. Για την κατανόηση τις συμπεριφοράς του τελικού μοντέλου, φτιάχνουμε κάποια διαγράμματα τρέχοντας το script:
+  </p>
+  <pre><code class="language-console">python models/model_interpretation.py
+</code></pre>
+  <p>
+   Τα διαγράμματα σώζονται στον φάκελο
+   <code>
+    models/plots
+   </code>
+   και παρουσιάζονται ακολούθως.
+  </p>
+  <h2>
+   Feature importance
+  </h2>
+  <p>
+   <img alt="Διάγραμμα5" src="models/plots/feature_importance.png"/>
+  </p>
+  <ul>
+   <li>
+    <strong>
+     gain
+    </strong>
+    : Το 1ο και 8ο component φαίνεται να έδωσαν την μεγαλύτερη βελτίωση στην τιμή του σφάλματος, όταν εισήχθησαν στο μοντέλο. Αμέσως μετά ακολουθούν οι δυαδικές μεταβλητές
+    <code>
+     workhours
+    </code>
+    και
+    <code>
+     weekend
+    </code>
+    , οι οποίες από το
+    <strong>
+     weight
+    </strong>
+    plot φαίνεται να μην έχουν μεγάλη συμμετοχή, ωστόσο η παρουσία τους φαίνεται να είναι σημαντική.
+   </li>
+   <li>
+    <strong>
+     weight
+    </strong>
+    : Το 1ο και 2o component είναι τα top-2 features της PCA που έχουν το μεγαλύτερο ποσοστό της διασποράς. Φαίνεται το μοντέλο να τα αξιοποιεί καθώς τα εν λόγω features επιλέχθηκαν συχνά στα επιμέρους δέντρα.
+   </li>
+  </ul>
+  <h2>
+   Residuals plot
+  </h2>
+  <p>
+   <img alt="Διάγραμμα6" src="models/plots/residuals.png"/>
+  </p>
+  <p>
+   Το διάγραμμα των residuals vs predicted values φανερώνει μια τάση ότι στις διαδρομές που προβλέπεται χαμηλός χρόνος, το σφάλμα είναι μεγαλύτερο. Καθώς μεγαλώνει η προβλεπόμενη τιμή του χρόνου της διαδρομής, τα σφάλματα μειώνονται. Παρόλα αυτά τα σφάλματα είναι κοντά στο μηδέν και δεν φαίνεται να παραβιάζεται η υπόθεση της ομοσκεδαστικότητας. Επιπλέον, το ιστόγραμμα των σφαλμάτων επίσης επιβεβαιώνει ότι θα μπορούσε να κατανέμονται κανονικά, και κεντραρισμένα γύρω από το μηδέν.
+  </p>
+  <h2>
+   Permutation importance
+  </h2>
+  <p>
+   <img alt="Διάγραμμα7" src="models/plots/permutation_importance.png"/>
+  </p>
+  <p>
+   Γενικά τα θηκοδιαγράμματα φαίνεται να έχουν μικρό εύρος το οποίο δείχνει συνέπεια του μοντέλου. Όπως ήταν αναμενόμενο, την μεγαλύτερη επίδραση έχει το πρώτο κύριο συστατικό, το οποίο εξηγεί μεγάλο μέρος της διασποράς των numeric χαρακτηριστικών. Περιέργως, και εδώ το 8ο component φαίνεται να έχει μεγάλη επιρροή, ενώ τα αποτελέσματα  συμφωνούν με το feature importance plot και στο κομμάτι της επιρροής των
+   <code>
+    workhours
+   </code>
+   και
+   <code>
+    weekend
+   </code>
+   μεταβλητών.
+  </p>
+  <script src="/usr/share/remarkable/media/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+ </body>
+</html>
